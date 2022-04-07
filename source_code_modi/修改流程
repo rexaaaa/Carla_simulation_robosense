@@ -1,0 +1,39 @@
+Carla tutorial: https://carla.readthedocs.io/en/latest/tuto_D_create_sensor/
+
+
+
+1.Sensor actor: Carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor   
+	  csv_reader.hpp ----->  to read data.csv
+	  data.csv     -----> liser point in h_degree and v_degree
+	  RSLidar.cpp  ------>  compare to RayCastLidar.cpp
+	  RSLidar.h    ------>  compare to RayCastLidar.h
+	  RSSemanticLidar.cpp    ------>  compare to  RayCastSemanticLidar.cpp  (Attention: the path of data_csv need to be changed)
+	  RSSemanticLidar.h      ------>  compare to  RayCastSemanticLidar.h
+          (just put all these file in Carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor)
+
+           manual_control_lidar_test.py move in carla/pythonAPI/examples
+	
+1)Carla_0.9.12/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/RayCastSemanticLidar.cpp
+2)Carla_0.9.12_backup/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/RayCastSemanticLidar.h
+	
+
+this is not be used , don't care //2.Serializer:   Carla/LibCarla/source/carla/sensor/s11n/
+
+
+
+3.Sensor data   Carla/LibCarla/source/carla/sensor/data/SemanticLidarData.h     ----> modify content    P132 - P140
+                Carla/PythonAPI/carla/source/libcarla/SensorData.cpp            ----> modify content    no modify
+
+4.registry      Carla/LibCarla/source/carla/sensor/SensorRegistry.h             ----> modify content    // for robosense // is note
+
+5.              Carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Sensor/LidarDescription.h   ----> modify content    two places
+
+6.         /home/yihang/carla/Unreal/CarlaUE4/Plugins/Carla/Source/Carla/Actor/ActorBlueprintFunctionLibrary.cpp    ------>   
+
+
+after change: 
+	re build from: 
+             make PythonAPI 
+             make launch
+
+befor running python, you need to open carla client and click play,then python
